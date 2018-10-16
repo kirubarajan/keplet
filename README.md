@@ -1,19 +1,17 @@
 # Keplet CLI
-A command line tool for managing machine learning projects and their associated resources. Keplet allows you to create new machine learning projects that scaffold commonly needed structure. For example, running
+A command line tool for managing machine learning projects and their associated resources. Keplet allows you to create new machine learning projects that scaffold commonly needed structure. As a result, publishing reproducable models and deploying pre-trained models
 
-`keplet create chatbot --pytorch` 
+For example, running: `keplet create chatbot --framework torch` will create a virtual environment (with PyTorch pre-installed) and scaffold:
 
-will create a virtual environment (with PyTorch pre-installed) and scaffold the following structure:
-
-    .
-    ├── kep.py                   # Model/dataset definition and  misc. metadata
+    chatbot/
+    ├── kep.json                 # Model/dataset definition and  misc. metadata
     ├── data.py                  # Data loader from either Keplet cache or by path
     ├── model.py                 # Model class with interface to make predictions
     ├── server.py                # REST API dynamically generated from kep.py config
     ├── requirements.txt         # Dependency tracker for use with pip/anaconda
     └── README.md                # Boilerplate README.md with file instructions
 
-Finally, running `keplet start` will launch a Flask server in `server.py`. By default, the server listens at `localhost:5000/predict` and returns JSON-encoded predictions over HTTP.
+Additionally, running `keplet start` will launch a Flask server in `server.py`. By default, the server listens at `localhost:5000/predict` and returns JSON-encoded predictions over HTTP.
 
 ## Features
 - Virtual environments provisioner for environment variables and dependencies
