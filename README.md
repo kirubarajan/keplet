@@ -55,5 +55,8 @@ Commands:
   dataset
 ```
 
+## Contributing
+This project was developed to accelerate deep learning research and improve accessibility within the machine learning community. Feel free to open a pull request!
+
 ## License
 MIT
