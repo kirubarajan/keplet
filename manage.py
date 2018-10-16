@@ -15,9 +15,11 @@ def dataset(location, name):
     click.echo('Caching dataset location')
 
 @cli.command()
-@click.option('--blank', default=True, help='whether to initialize with kep.py')
+@click.option('--blank', default=True, help='initialize new folder without scaffold')
+@click.option('--pytorch', default=True, help='initialize new foler with pytorch installed')
+@click.option('--tensorflow', default=True, help='initialize new foler with tensorflow installed')
 @click.argument('name')
-def create(name, blank):
+def create(name, blank, pytorch, tensorflow):
     click.echo("Creating new project named '" + name + "'")
 
 @cli.command()
