@@ -1,7 +1,8 @@
 # Keplet CLI
-A command line tool for managing machine learning projects and their associated resources. Keplet allows you to create new machine learning projects that scaffold commonly needed structure. As a result, publishing reproducable models and deploying pre-trained models
+A command line tool for managing machine learning projects and their associated resources. Keplet allows developers to create new machine learning projects that scaffold commonly needed structure. As a result, Keplet makes it easier to publish reproducable models and deploy pre-trained models. Keplet is a non-intrusive CLI overlay, allowing developers to develop and define models without whatever framework/architecture they choose.
 
-For example, running: `keplet create chatbot --framework torch` will create a virtual environment (with PyTorch pre-installed) and scaffold:
+## Example
+Running: `keplet create chatbot --framework torch` will create a virtual environment (with PyTorch pre-installed) and scaffold:
 
     chatbot/
     ├── kep.json                 # Model/dataset definition and  misc. metadata
