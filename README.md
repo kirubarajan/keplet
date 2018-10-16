@@ -2,7 +2,24 @@
 Keplet is a non-intrusive CLI for developing and interacting with machine learning projects by scafolding common architectures and abstracting model management (e.g. dependencies, documentation, containerization). Keplet supports any model architecture and is compatible with any framework, making it easier to publish reproducable models and deploy pre-trained instances.
 
 ## Example
-Running: `keplet create chatbot --framework torch` will create a virtual environment (with PyTorch pre-installed) and scaffold:
+Creating new project: `keplet create chatbot --framework torch`
+
+```
+🤖 New project named 'chatbot':
+
+✨ Creating folder with kep.json...
+✨ Cloning boilerplate files...
+✨ Creating virtual environment...
+✨ Generating README file...
+✨ Installing PyTorch...
+
+🤖 Success! Access your project by running:
+ 1. cd chatbot
+ 2. pip install -r requirements.txt
+ 3. keplet start
+```
+
+Resulting project architecture (with PyTorch-enabled virtual environment):
 
     chatbot/
     ├── kep.json                 # Model/dataset definition and  misc. metadata
@@ -16,10 +33,10 @@ Additionally, running `keplet start` will launch a Flask server in `server.py`. 
 
 ## Features
 - Virtual environments provisioner for environment variables and dependencies
-- Dataset location cache for use across multiple projects
+- Dataset directory cache for use across multiple projects
 - File directory usage for project management
-- Command line documentation
-- Automatic REST API creation for model predictions over HTTP (Flask integration)
+- Command line documentation (by using the `--help` flag)
+- Automatic REST API creation for model predictions over HTTP
 
 ## Usage
 ```
