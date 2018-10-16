@@ -6,17 +6,14 @@ A command line tool for managing machine learning projects and their associated 
 will create a virtual environment (with PyTorch pre-installed) and scaffold the following structure:
 
     .
-    ├── build/                   # Compiled files (alternatively `dist`)
-    ├── docs/                    # Documentation files (alternatively `doc`)
+    ├── kep.py                   # Model/dataset definition and  misc. metadata
     ├── data.py                  # Data loader from either Keplet cache or by path
     ├── model.py                 # Model class with interface to make predictions
-    ├── venv/                    # Virtual environment location
-    ├── requirements.txt         # Dependency tracker
-    ├── kep.py                   # Model/dataset definition and  misc. metadata
+    ├── server.py                # REST API dynamically generated from kep.py config
+    ├── requirements.txt         # Dependency tracker for use with pip/anaconda
     └── README.md                # Boilerplate README.md with file instructions
 
-Running `keplet start` will then launch a REST API listening at `localhost:5000` that
-returns an HTTP respose by POST to the `/predict` route. 
+Finally, running `keplet start` will launch a Flask server in `server.py`. By default, the server listens at `localhost:5000/predict` and returns JSON-encoded predictions over HTTP.
 
 ## Features
 - Virtual environments provisioner for environment variables and dependencies
@@ -41,3 +38,6 @@ Commands:
   readme
   dataset
 ```
+
+## License
+MIT
