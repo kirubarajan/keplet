@@ -39,6 +39,8 @@ Resulting project architecture (with PyTorch-enabled virtual environment):
 Additionally, running `keplet start` will launch a Flask server in `server.py`. By default, the server listens at `localhost:5000/predict` and returns JSON-encoded predictions over HTTP.
 
 ## Usage
+After installing Keplet using `pip install keplet`:
+
 ```
 Usage: manage.py [OPTIONS] COMMAND [ARGS]...
 
