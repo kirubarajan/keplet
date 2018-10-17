@@ -17,10 +17,11 @@ Creating new project: `keplet create chatbot --framework torch`
 ✨ Cloning boilerplate files...
 ✨ Creating virtual environment...
 ✨ Generating README file...
-✨ Installing PyTorch...
+✨ Installing torch...
 
 🤖 Success! Access your project by running:
- 1. cd chatbot
+ 0. cd chatbot
+ 1. source venv/bin/activate
  2. pip install -r requirements.txt
  3. keplet start
 ```
@@ -28,7 +29,7 @@ Creating new project: `keplet create chatbot --framework torch`
 Resulting project architecture (with PyTorch-enabled virtual environment):
 
     chatbot/
-    ├── /venv                    # virtual environment location
+    ├── /venv                    # Virtual environment location
     ├── kep.json                 # Model/dataset definition and  misc. metadata
     ├── data.py                  # Data loader from either Keplet cache or by path
     ├── model.py                 # Model class with interface to make predictions
