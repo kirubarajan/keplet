@@ -9,9 +9,11 @@ containing the project metadata.
 - `--framework` (specify pip library to install and add to README)
 
 ### Example
-Execute: `keplet create chatbot --framework torch`
+**Execute**: 
 
-Output:
+`keplet create chatbot --framework torch`
+
+**Output**:
 
 ```
 🤖 New project named 'chatbot':
