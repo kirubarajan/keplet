@@ -1,10 +1,8 @@
 import os
-import subprocess
 import json
-import requests
-import virtualenv
-from pip._internal import main
 import click
+import virtualenv
+import requests
 
 @click.group()
 def cli():
