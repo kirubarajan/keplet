@@ -32,7 +32,7 @@ Resulting project architecture (with PyTorch-enabled virtual environment):
     ├── kep.json                 # Model/dataset definition and  misc. metadata
     ├── data.py                  # Data loader from either Keplet cache or by path
     ├── model.py                 # Model class with interface to make predictions
-    ├── server.py                # REST API dynamically generated from kep.py config
+    ├── server.py                # REST API dynamically generated from kep.json config
     ├── requirements.txt         # Dependency tracker for use with pip/anaconda
     └── README.md                # Boilerplate README.md with file instructions
 
