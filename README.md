@@ -1,4 +1,4 @@
-# Keplet CLI
+# Keplet
 Keplet is a non-intrusive CLI for developing and interacting with machine learning projects by scafolding common architectures and abstracting model management (e.g. dependencies, documentation, containerization). Keplet supports any model architecture and is compatible with any framework, making it easier to publish reproducable models and deploy pre-trained instances.
 
 ## Features
