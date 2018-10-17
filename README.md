@@ -34,6 +34,7 @@ Resulting project architecture (with PyTorch-enabled virtual environment):
     ├── model.py                 # Model class with interface to make predictions
     ├── server.py                # REST API dynamically generated from kep.json config
     ├── requirements.txt         # Dependency tracker for use with pip/anaconda
+    ├── Dockerfile               # Minimal Docker configuration for deployment
     └── README.md                # Boilerplate README.md with file instructions
 
 Additionally, running `keplet start` will launch a Flask server in `server.py`. By default, the server listens at `localhost:5000/predict` and returns JSON-encoded predictions over HTTP.
@@ -54,6 +55,7 @@ Commands:
   start
   train
   predict
+  containerize
   run
 ```
 

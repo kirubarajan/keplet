@@ -1,4 +1,5 @@
 import os
+import subprocess
 import json
 import requests
 import virtualenv
@@ -27,16 +28,16 @@ def dataset(location, name):
 @click.option('--framework', default=None, help='initialize with framework added as a dependency')
 @click.argument('name')
 def create(name, blank, framework):
-    click.echo("\n🤖 New project named '" + name + "':")
+    click.echo("🤖 New project named '" + name + "':")
 
     click.echo("\n✨ Creating folder with kep.json...")
     kep_file = "./project/kep.json"
     os.makedirs(os.path.dirname(kep_file), exist_ok=True)
     with open(kep_file, "w") as f:
-        config = {"name": name, "license": "MIT", "start": "source venv/bin/activate"}
+        config = {"name": name, "license": "MIT"}
         json.dump(config, f)
 
-    click.echo("\n✨ Cloning boilerplate files...")
+    click.echo("✨ Cloning boilerplate files...")
     url = "https://raw.githubusercontent.com/kirubarajan/keplet/master/scaffold/model.py"
     response = requests.get(url)
     if response.status_code == 200:
@@ -49,27 +50,40 @@ def create(name, blank, framework):
         with open("./project/data.py", 'wb') as f:
             f.write(response.content)
     
-    click.echo("\n✨ Creating virtual environment...")
+    click.echo("✨ Creating virtual environment...")
     venv_dir = os.path.dirname("./project/venv/venv")
     virtualenv.create_environment(venv_dir)
     
-    click.echo("\n✨ Generating README file...")
+    click.echo("✨ Generating README file...")
     with open("./project/README.md", "w") as f:
-        f.write("# " + name + "\n")
+        f.write("# " + name)
 
     if framework:
-        click.echo("\n✨ Adding framework dependency...")
+        click.echo("✨ Adding framework dependency...")
         with open("./project/requirements.txt", "w") as f:
-            f.write(framework + "\n")
+            f.write(framework)
     
-    click.echo("\n🤖 Success! Access your project by running:\n 1. cd " + name + "\n 2. pip install -r requirements.txt\n 3. keplet start")
+    click.echo("\n🤖 Success! Access your project by running: \n 0. cd "+ name + 
+        "\n 1. source venv/bin/activate" + 
+        "\n 2. pip install -r requirements.txt\n 3. keplet start")
 
 # Running Flask server on given port
 @cli.command()
+@click.option('--name', default=".", help='use project from given path')
 @click.option('--port', default=5000, help='start server on given port')
 @click.argument('name')
 def start(name, port):
     click.echo("Running REST API at http://localhost:" + port)
+    # TODO start Flask server
+
+@cli.command()
+def list():
+    for project in [f.path[2:] for f in os.scandir('.') if f.is_dir() and 'kep.json' in os.listdir(f.path)]:
+        click.echo("💾 " + project)
+
+@cli.command()
+def containerize():
+    # build Docker
 
 if __name__ == '__main__':
     cli()
