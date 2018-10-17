@@ -29,13 +29,15 @@ Options:
 
 Commands:
   init
+  list
   create
   start
   train
   predict
-  readme
-  dataset
+  run
 ```
+
+Where `run` can execute scripts defined in `kep.json`. 
 
 ## License
 MIT
