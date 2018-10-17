@@ -4,3 +4,6 @@ class Model:
     
     def predict(self, input):
         pass
+
+    def train(self):
+        pass
