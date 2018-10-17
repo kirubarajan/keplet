@@ -1,9 +1,34 @@
 # Keplet CLI
-A command line tool for managing machine learning projects and their associated resources. Keplet allows you to create new machine learning projects that scaffold commonly needed structure. As a result, publishing reproducable models and deploying pre-trained models
+Keplet is a non-intrusive CLI for developing and interacting with machine learning projects by scafolding common architectures and abstracting model management (e.g. dependencies, documentation, containerization). Keplet supports any model architecture and is compatible with any framework, making it easier to publish reproducable models and deploy pre-trained instances.
 
-For example, running: `keplet create chatbot --framework torch` will create a virtual environment (with PyTorch pre-installed) and scaffold:
+## Features
+- Virtual environments provisioner for environment variables and dependencies
+- Dataset directory cache for use across multiple projects
+- File directory usage for project management
+- Command line documentation (by using the `--help` flag)
+- Automatic REST API creation for model predictions over HTTP
+
+## Example
+Creating new project: `keplet create chatbot --framework torch`
+
+```
+🤖 New project named 'chatbot':
+✨ Creating folder with kep.json...
+✨ Cloning boilerplate files...
+✨ Creating virtual environment...
+✨ Generating README file...
+✨ Installing PyTorch...
+
+🤖 Success! Access your project by running:
+ 1. cd chatbot
+ 2. pip install -r requirements.txt
+ 3. keplet start
+```
+
+Resulting project architecture (with PyTorch-enabled virtual environment):
 
     chatbot/
+    ├── /venv                    # virtual environment location
     ├── kep.json                 # Model/dataset definition and  misc. metadata
     ├── data.py                  # Data loader from either Keplet cache or by path
     ├── model.py                 # Model class with interface to make predictions
@@ -13,14 +38,9 @@ For example, running: `keplet create chatbot --framework torch` will create a vi
 
 Additionally, running `keplet start` will launch a Flask server in `server.py`. By default, the server listens at `localhost:5000/predict` and returns JSON-encoded predictions over HTTP.
 
-## Features
-- Virtual environments provisioner for environment variables and dependencies
-- Dataset location cache for use across multiple projects
-- File directory usage for project management
-- Command line documentation
-- Automatic REST API creation for model predictions over HTTP (Flask integration)
-
 ## Usage
+After installing Keplet using `pip install keplet`:
+
 ```
 Usage: manage.py [OPTIONS] COMMAND [ARGS]...
 
