@@ -30,8 +30,8 @@ def dataset(location, name):
 def create(name, blank, framework):
     click.echo("🤖 New project named '" + name + "':")
 
-    click.echo("\n✨ Creating folder with kep.json...")
-    kep_file = "./project/kep.json"
+    click.echo("✨ Creating folder with kep.json...")
+    kep_file = "./" + name + "/kep.json"
     os.makedirs(os.path.dirname(kep_file), exist_ok=True)
     with open(kep_file, "w") as f:
         config = {"name": name, "license": "MIT"}
@@ -41,26 +41,26 @@ def create(name, blank, framework):
     url = "https://raw.githubusercontent.com/kirubarajan/keplet/master/scaffold/model.py"
     response = requests.get(url)
     if response.status_code == 200:
-        with open("./project/model.py", 'wb') as f:
+        with open("./" + name + "/model.py", 'wb') as f:
             f.write(response.content)
 
     url = "https://raw.githubusercontent.com/kirubarajan/keplet/master/scaffold/data.py"
     response = requests.get(url)
     if response.status_code == 200:
-        with open("./project/data.py", 'wb') as f:
+        with open("./" + name + "/data.py", 'wb') as f:
             f.write(response.content)
     
     click.echo("✨ Creating virtual environment...")
-    venv_dir = os.path.dirname("./project/venv/venv")
+    venv_dir = os.path.dirname("./" + name + "/venv/venv")
     virtualenv.create_environment(venv_dir)
     
     click.echo("✨ Generating README file...")
-    with open("./project/README.md", "w") as f:
+    with open("./" + name + "/README.md", "w") as f:
         f.write("# " + name)
 
     if framework:
         click.echo("✨ Adding framework dependency...")
-        with open("./project/requirements.txt", "w") as f:
+        with open("./" + name + "/requirements.txt", "w") as f:
             f.write(framework)
     
     click.echo("\n🤖 Success! Access your project by running: \n 0. cd "+ name + 
@@ -83,7 +83,8 @@ def list():
 
 @cli.command()
 def containerize():
-    # build Docker
+    # build Docker image
+    pass
 
 if __name__ == '__main__':
     cli()
