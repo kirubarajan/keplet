@@ -1,5 +1,5 @@
 # Usage
-A list of Keplet's command line functionality.
+A list of Keplet's command line functionality. Instructions page is a work in progress during development.
 
 ## `create`
 Start a new Keplet project by creating a directory with a given name and initializing a config file named `kep.json`
@@ -31,3 +31,14 @@ containing the project metadata.
 ```
 
 ## `list`
+**Execute**: 
+
+`keplet list`
+
+**Output**:
+
+```
+🤖 project1
+🤖 project2
+🤖 project3
+```
