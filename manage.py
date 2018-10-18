@@ -47,6 +47,12 @@ def create(name, blank, framework):
     if response.status_code == 200:
         with open("./" + name + "/data.py", 'wb') as f:
             f.write(response.content)
+
+    url = "https://raw.githubusercontent.com/kirubarajan/keplet/master/scaffold/server.py"
+    response = requests.get(url)
+    if response.status_code == 200:
+        with open("./" + name + "/server.py", 'wb') as f:
+            f.write(response.content)
     
     click.echo("✨ Creating virtual environment...")
     venv_dir = os.path.dirname("./" + name + "/venv/venv")
